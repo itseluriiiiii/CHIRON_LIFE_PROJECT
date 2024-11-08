@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalized Diet and Workout Recommendations</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    scroll-behavior: smooth;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: #000;
+    color: #fff     ;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    margin-top: 30px;
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    background-color: #16423C;
+    box-shadow: 0px 4px 8px #006A67;
+    border-radius: 8px;
+}
+
+h2 {
+    font-size: 30px;
+    color: #fff;
+}
+
+label {
+    font-size: 20px;
+    display: block;
+    margin: 15px 0 5px;
+    font-weight: bold;
+}
+
+input[type="text"], textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 15px;
+    border: 1px solid #006A67;
+    border-radius: 4px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #000;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 20px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.4s ease-in-out;
+}
+
+button:hover {
+    box-shadow: 0 0 25px #006A67,
+    0 0 50px #006A67,
+    0 0 100px #006A67;
+}
+
+.result-buttons {
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.result-buttons button {
+    margin-bottom: 10px;
+}
+
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%;
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+    padding-top: 60px; 
+}
+
+.modal-content {
+    background-color: #000;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; 
+}
+
+.close {
+    color: #000;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: 000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    padding: 5px 0;
+    font-size: 16px;
+}
+html{
+    font-size: 60%;
+    overflow-x: hidden;
+}
+.navbar {
+    display: flex;
+    justify-content: space-between; 
+    padding: 10px;
+}
+.navbar a{
+    font-size: 1.8rem;
+    color: #fff;
+    margin-left: 4rem;
+    font-weight: 500;
+    transition: 0.3s ease-in-out;
+    border-bottom: 3px solid transparent;
+}
+.navbar a:hover{
+    color: #006A67;
+    border-bottom: 3px solid #006A67;
+}
+.gradient-btn{
+    text-align: center;
+    align-items: center;
+    width: 20%;
+    font-family: "Poppins", sans-serif;
+    font-size: 1.8rem;
+    padding: 10px 20px;
+    border-radius: 25px;
+    background-color: #006A67;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    border: none;
+    text-wrap: nowrap;
+    text-decoration: none;
+}
+.gradient-btn a{
+    text-decoration: none;
+    color: #000;
+}
+.gradient-btn:hover{
+    transform: scale(1.05);
+    box-shadow: 0 0 25px #006A67,
+                0 0 50px #006A67,
+                0 0 100px #006A67;
+}
+</style>
+<body>
+    <nav class="navbar">
+        <a href="../templatessssss/index2.html">Home</a>
+    </nav>
+    <button class="gradient-btn"><a href="../templatessssss/index1.html">Log Out</a></button>
+    <div class="container">
+        <h2>Personalized Diet & Workout Planner</h2>
+        <form action="/recommendations" method="POST">
+            <label>Age:</label>
+            <input type="text" name="age" placeholder="Enter your age" required>
+
+            <label>Gender:</label>
+            <input type="text" name="gender" placeholder="e.g., Male, Female, Non-binary" required>
+
+            <label>Weight (kg):</label>
+            <input type="text" name="weight" placeholder="Enter your weight in kg" required>
+
+            <label>Height (cm):</label>
+            <input type="text" name="height" placeholder="Enter your height in cm" required>
+
+            <label>Region:</label>
+            <input type="text" name="region" placeholder="e.g., Asia, Europe, North America" required>
+            <label>Dietary Preferences:</label>
+            <input type="text" name="dietary_preferences" placeholder="e.g., vegetarian, high-protein" required>
+
+            <label>Fitness Goals:</label>
+            <input type="text" name="fitness_goals" placeholder="e.g., weight loss, muscle gain" required>
+
+            <label>Lifestyle Factors:</label>
+            <input type="text" name="lifestyle_factors" placeholder="e.g., active, sedentary" required>
+
+            <label>Dietary Restrictions:</label>
+            <input type="text" name="dietary_restrictions" placeholder="e.g., gluten-free, lactose-intolerant" required>
+
+            <label>Health Conditions:</label>
+            <input type="text" name="health_conditions" placeholder="e.g., diabetes, high blood pressure" required>
+
+            <label>Your Query:</label>
+            <textarea name="user_query" placeholder="Describe your goal briefly" required></textarea>
+
+            <button type="submit">Get Recommendations</button>
+        </form>
+    </div>
+
+    <!-- Results Section -->
+    <div class="container">
+        <h2>Recommendations</h2>
+
+        <div class="result-buttons">
+            <button onclick="showModal('dietModal')">View Diet Types</button>
+            <button onclick="showModal('workoutModal')">View Workout Options</button>
+            <button onclick="showModal('breakfastModal')">View Breakfast Ideas</button>
+            <button onclick="showModal('dinnerModal')">View Dinner Options</button>
+            <button onclick="showModal('tipsModal')">View Additional Tips</button>
+        </div>
+    </div>
+<div id="dietModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('dietModal')">&times;</span>
+        <h3>Diet Types</h3>
+        <ul>
+            {% for diet in recommendations.diet_types %}
+                <li>{{ diet }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+<div id="workoutModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('workoutModal')">&times;</span>
+        <h3>Workout Options</h3>
+        <ul>
+            {% for workout in recommendations.workouts %}
+                <li>{{ workout }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+<div id="breakfastModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('breakfastModal')">&times;</span>
+        <h3>Breakfast Ideas</h3>
+        <ul>
+            {% for breakfast in recommendations.breakfasts %}
+                <li>{{ breakfast }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+<div id="dinnerModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('dinnerModal')">&times;</span>
+        <h3>Dinner Options</h3>
+        <ul>
+            {% for dinner in recommendations.dinners %}
+                <li>{{ dinner }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+<div id="tipsModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('tipsModal')">&times;</span>
+        <h3>Additional Tips</h3>
+        <ul>
+            {% for tip in recommendations.additional_tips %}
+                <li>{{ tip }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+<script>
+    function showModal(modalId) {
+        document.getElementById(modalId).style.display = "block";
+    }
+
+    function closeModal(modalId) {
+        document.getElementById(modalId).style.display = "none";
+    }
+
+    // Close modals when clicking outside of them
+    window.onclick = function(event) {
+        const modals = document.getElementsByClassName("modal");
+        for (let i = 0; i < modals.length; i++) {
+            if (event.target == modals[i]) {
+                modals[i].style.display = "none";
+            }
+        }
+    }
+</script>
+
+</body>
+</html>

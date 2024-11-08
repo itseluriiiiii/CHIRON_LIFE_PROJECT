@@ -1,0 +1,287 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    scroll-behavior: smooth;
+    font-family: "Poppins", sans-serif;
+}
+:root{
+    --bg-color: #16423C;
+    --second-bg-color: #006A67;
+    --text-color: #fff;
+    --main-color:#000;
+}   
+html{
+    font-size: 60%;
+    overflow-x: hidden;
+}
+body{
+    background:#000;
+    color: #fff;
+    font-family: "Poppins", sans-serif;
+}
+.header{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding: 4rem 15%;
+    background: #1A1A1D;
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+}
+.logo{
+    font-size: 3rem;
+    font-weight: bold;
+    background: transparent;
+    color: #006A67;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+.logo:hover{
+    transform: scale(1.1);
+
+}
+.navbar a{
+    font-size: 1.8rem;
+    color: #fff;
+    margin-left: 4rem;
+    font-weight: 500;
+    transition: 0.3s ease-in-out;
+    border-bottom: 3px solid transparent;
+}
+.navbar a:hover{
+    color: #006A67;
+    border-bottom: 3px solid #006A67;
+}
+.gradient-btn{
+    font-family: "Poppins", sans-serif;
+    font-size: 1.8rem;
+    padding: 1rem 2rem;
+    border-radius: 3rem;
+    background-color: #006A67;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    border: none;
+    text-wrap: nowrap;
+    text-decoration: none;
+}
+.gradient-btn a{
+    text-decoration: none;
+    color: #000;
+}
+.gradient-btn:hover{
+    transform: scale(1.05);
+    box-shadow: 0 0 25px #006A67,
+                0 0 50px #006A67,
+                0 0 100px #006A67;
+}
+
+
+section{
+    min-height: 100vh;
+    padding: 10rem 15%;
+}
+.home{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15rem;
+}
+.home-content{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+
+}
+.home-content h1{
+    font-size: 8rem;
+    font-weight: 700;
+    margin-top: 1.5rem;
+    line-height: 1;
+    color: #006A67;
+}
+.home-content h3{
+    margin: 1rem 0;
+    font-size: 4rem;
+    color: #006A67  ;
+}
+.home-content p{
+    font-size: 1.7rem;
+    font-weight: 500;
+    line-height: 1.8;
+    color: #fff;
+}
+.home-img img{
+    width: 20vw;
+    border-radius: 20%;
+    box-shadow: 0 0 25px #006A67;
+    transition: 0.4s ease-in-out;
+}
+.home-img img:hover{
+    box-shadow: 0 0 25px #006A67,
+                0 0 50px #006A67,
+                0 0 100px #006A67;
+}
+.btn-group{
+    display: flex;
+    gap: 1.5rem;
+}
+.btn{
+    margin-top: 20px;
+    display: inline-block;
+    padding: 1rem 3rem;
+    background-color: #16423C;
+    box-shadow: 0 0 25px #006A67;
+    border-radius: 3rem;
+    font-size: 1.8rem;
+    color: #fff;
+    border: 2px solid transparent;
+    font-weight:600;
+    transition: 0.3s ease-in-out;
+}
+.btn:hover{
+    transform: scale(1.05);
+    box-shadow: 0 0 25px #006A67,
+                0 0 50px #006A67,
+                0 0 100px #006A67;
+}
+.about{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10rem;
+    background: #000;
+}
+.about-img img{
+    width: 65vh;
+    border: 50%;
+    box-shadow: 0 0 25px #006A67;
+    transition: 0.4s ease-in-out;
+}
+.about-img img:hover{
+    box-shadow: 0 0 25px #006A67,
+                0 0 50px #006A67,
+                0 0 100px #006A67;
+}
+.about-content h2{
+    font-size: 7rem;
+    text-align: left;
+    color: #006A67;
+}
+.about-content p{
+    margin-top: 20px;
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+}
+
+::-webkit-scrollbar{
+    width: 10px;
+}
+::-webkit-scrollbar-thumb{
+    background-color: #16423C;
+}
+::-webkit-scrollbar-track{
+    color: #16423C;
+}
+.about-content btn{
+    margin: 3rem 0;
+}
+.wrapper .title{
+    text-align: center;
+}
+.title h4{
+    display: inline-block;
+    padding: 18px;
+    color: #fff;
+    font-size: 30px;
+    font-weight: 500;
+    letter-spacing: 1.2px;
+    word-spacing: 1px;
+    border: 1px solid #006A67;
+    border-radius: 15px;
+    text-transform: uppercase;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 0 25px #006A67;
+    transition: 0.3s ease-in-out;
+}
+.title h4:hover{
+    box-shadow: 0 0 25px #006A67,
+                0 0 50px #006A67,
+                0 0 100px #006A67;
+}
+.container{
+    width: 1200px;
+    height: auto;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+    grid-gap: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.container .box{
+    margin-top: 50px;
+    position: relative;
+    background: transparent;
+    padding: 10px 30px 30px;
+    text-align: center;
+    overflow: hidden;
+    border-radius: 1px;
+}
+.container .image img{
+    width: 30vh;
+    margin-top: 20px;
+    border-radius: 1%;
+    border: 5px solid #16423C;
+    transition: 0.4s ease-in-out;
+}
+.container .image img:hover{
+    box-shadow: 0 0 25px #006A67,
+                0 0 50px #006A67,
+                0 0 100px #006A67;
+}
+.container .box h3{
+    margin-top: 25px;
+    font-size: 25px;
+    color: #fff;
+    font-family: "Poppins", sans-serif;
+}
+.container .box h2{
+    font-size: 17px;
+    color: #006A67;
+    font-family: "Poppins", sans-serif;
+}
+.container .box p{
+    font-size: 15px;
+    color: #fff;
+    font-family: "Poppins", sans-serif;
+    padding-top: 20px;
+}
+.icons a{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 3rem;
+    padding: 1rem;
+    background: #000;
+    border: 2px solid #006A67;
+    color: #fff;
+    transition: 0.3s ease-in-out;
+    margin: 3rem 0.5rem;
+}
+.icons a:hover{
+    color: #16423C;
+    background-color: #fff;
+    transform: scale(1.2)translateY(-5px);
+    box-shadow: 0 0 25px #16423C;
+}
